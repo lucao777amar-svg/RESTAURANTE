@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Red Ember Diner — Est. 1957</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Vintage-style Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Oswald:wght@300;400;500;600;700&family=Special+Elite&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===================== CART SIDEBAR ===================== -->
+  <div id="cart-overlay" class="cart-overlay" aria-hidden="true"></div>
+  <aside id="cart-sidebar" class="cart-sidebar" role="complementary" aria-label="Shopping Cart">
+    <div class="cart-header">
+      <h2 class="cart-title">Your Order <span class="cart-badge" id="cart-count">0</span></h2>
+      <button class="cart-close" id="cart-close-btn" aria-label="Close cart">&times;</button>
+    </div>
+    <div class="cart-body" id="cart-items">
+      <div class="cart-empty">
+        <span class="cart-empty-icon">🍔</span>
+        <p>Your cart is empty</p>
+        <small>Add something delicious!</small>
+      </div>
+    </div>
+    <div class="cart-footer" id="cart-footer" style="display:none;">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <span id="cart-total">$0.00</span>
+      </div>
+      <button class="btn btn-primary btn-full" id="cart-checkout-btn">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <!-- ===================== NAVIGATION ===================== -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <!-- Logo -->
+      <a href="#home" class="nav-logo" data-page="home" aria-label="Red Ember Diner Home">
+        <div class="logo-wrap">
+          <span class="logo-badge">&#9733;</span>
+          <div class="logo-text">
+            <span class="logo-main">Red Ember</span>
+            <span class="logo-sub">— Diner —</span>
+          </div>
+          <span class="logo-badge">&#9733;</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#home"      class="nav-link active" data-page="home">Home</a></li>
+        <li><a href="#menu"      class="nav-link"        data-page="menu">Menu</a></li>
+        <li><a href="#locations" class="nav-link"        data-page="locations">Locations</a></li>
+        <li><a href="#checkout"  class="nav-link"        data-page="checkout">Checkout</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Cart Button -->
+        <button class="cart-toggle-btn" id="cart-toggle-btn" aria-label="Open cart">
+          <span class="cart-icon">&#128722;</span>
+          <span class="cart-pill" id="nav-cart-count">0</span>
+        </button>
+        <!-- Hamburger -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== MAIN CONTENT ===================== -->
+  <main id="main-content">
+
+    <!-- ======== PAGE: HOME ======== -->
+    <section id="home" class="page page-home active" role="main" aria-label="Home page">
+
+      <!-- Hero -->
+      <div class="hero">
+        <div class="hero-bg-pattern"></div>
+        <div class="hero-content fade-up">
+          <div class="hero-stamp">Since 1957</div>
+          <h1 class="hero-title">
+            Flame-Grilled<br/><em>Perfection</em>
+          </h1>
+          <p class="hero-subtitle">Hand-crafted burgers, crispy fries &amp; milkshakes that'll take you straight back to the golden days.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" data-page="menu">See Our Menu</button>
+            <button class="btn btn-outline" data-page="locations">Find a Location</button>
+          </div>
+        </div>
+        <div class="hero-visual fade-in">
+          <div class="hero-plate">
+            <div class="plate-ring"></div>
+            <div class="plate-emoji">🍔</div>
+            <div class="orbit-item orbit-1">🍟</div>
+            <div class="orbit-item orbit-2">🥤</div>
+            <div class="orbit-item orbit-3">🌭</div>
+            <div class="orbit-item orbit-4">🥓</div>
+          </div>
+        </div>
+        <div class="hero-scroll-hint">
+          <span class="scroll-line"></span>
+          <span>Scroll</span>
+        </div>
+      </div>
+
+      <!-- Tagline Banner -->
+      <div class="ticker-wrap" aria-hidden="true">
+        <div class="ticker">
+          <span>&#9733; BEST BURGERS IN TOWN &#9733; OPEN DAILY &#9733; FAMILY RECIPES &#9733; SINCE 1957 &#9733; FRESHLY MADE &#9733; BEST BURGERS IN TOWN &#9733; OPEN DAILY &#9733; FAMILY RECIPES &#9733; SINCE 1957 &#9733; FRESHLY MADE &#9733;</span>
+        </div>
+      </div>
+
+      <!-- About Strip -->
+      <div class="about-strip">
+        <div class="container">
+          <div class="about-grid fade-up">
+            <div class="about-card">
+              <div class="about-icon">🔥</div>
+              <h3>Flame Grilled</h3>
+              <p>Every patty seared over open flame for that signature char and smoky depth.</p>
+            </div>
+            <div class="about-card">
+              <div class="about-icon">🥩</div>
+              <h3>Fresh Daily</h3>
+              <p>No frozen shortcuts. Our beef is ground fresh every single morning.</p>
+            </div>
+            <div class="about-card">
+              <div class="about-icon">🥛</div>
+              <h3>Real Milkshakes</h3>
+              <p>Thick, creamy, hand-spun shakes with real ice cream — not soft-serve.</p>
+            </div>
+            <div class="about-card">
+              <div class="about-icon">❤️</div>
+              <h3>Family Legacy</h3>
+              <p>Three generations of the Ember family serving the community with love.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Items -->
+      <div class="featured-section">
+        <div class="container">
+          <div class="section-header fade-up">
+            <div class="section-stamp">Staff Picks</div>
+            <h2 class="section-title">Fan Favourites</h2>
+            <p class="section-sub">The crowd never lies.</p>
+          </div>
+          <div class="featured-grid fade-up" id="featured-grid">
+            <!-- Populated by JS -->
+          </div>
+          <div class="section-cta fade-up">
+            <button class="btn btn-primary" data-page="menu">View Full Menu</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Story Section -->
+      <div class="story-section">
+        <div class="container">
+          <div class="story-grid fade-up">
+            <div class="story-visual">
+              <div class="story-photo-frame">
+                <div class="story-photo">
+                  <span class="story-emoji">🍽️</span>
+                </div>
+                <div class="photo-label">Est. 1957 · Founders' Original Grill</div>
+              </div>
+            </div>
+            <div class="story-text">
+              <div class="section-stamp">Our Story</div>
+              <h2>Born in a small diner, <em>built on big flavor</em></h2>
+              <p>Red Ember started as a tiny roadside stand on Route 66, when Earl Ember decided the world needed a better burger. Armed with a cast-iron grill, a jar of secret spices, and endless stubbornness, he built something that outlasted trends, chains, and time itself.</p>
+              <p>Today, we operate across 6 cities — still using Earl's original recipe, still grilling over flame, still believing that food made with pride tastes different.</p>
+              <a href="#locations" class="story-link" data-page="locations">Find us near you →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-brand">
+              <div class="footer-logo">Red Ember Diner</div>
+              <p>Serving happiness since 1957.</p>
+            </div>
+            <div class="footer-links">
+              <h4>Pages</h4>
+              <ul>
+                <li><a href="#home"      data-page="home">Home</a></li>
+                <li><a href="#menu"      data-page="menu">Menu</a></li>
+                <li><a href="#locations" data-page="locations">Locations</a></li>
+                <li><a href="#checkout"  data-page="checkout">Order Now</a></li>
+              </ul>
+            </div>
+            <div class="footer-hours">
+              <h4>Hours</h4>
+              <p>Mon – Thu: 10am – 10pm</p>
+              <p>Fri – Sat: 10am – 12am</p>
+              <p>Sunday: 11am – 9pm</p>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <p>&copy; 2025 Red Ember Diner. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+
+    </section>
+
+    <!-- ======== PAGE: MENU ======== -->
+    <section id="menu" class="page page-menu" role="main" aria-label="Menu page">
+
+      <div class="page-hero page-hero--menu">
+        <div class="container">
+          <div class="page-hero-content fade-up">
+            <div class="section-stamp">Est. 1957</div>
+            <h1 class="page-hero-title">Our Menu</h1>
+            <p>Hand-crafted with love. Grilled with fire. Served with attitude.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-body">
+        <div class="container">
+
+          <!-- Filter Tabs -->
+          <div class="menu-filters fade-up" role="tablist" aria-label="Menu categories">
+            <button class="filter-btn active" data-filter="all"        role="tab" aria-selected="true">All</button>
+            <button class="filter-btn"        data-filter="burgers"    role="tab" aria-selected="false">Burgers</button>
+            <button class="filter-btn"        data-filter="hotdogs"    role="tab" aria-selected="false">Hot Dogs</button>
+            <button class="filter-btn"        data-filter="sides"      role="tab" aria-selected="false">Sides</button>
+            <button class="filter-btn"        data-filter="drinks"     role="tab" aria-selected="false">Drinks</button>
+            <button class="filter-btn"        data-filter="desserts"   role="tab" aria-selected="false">Desserts</button>
+          </div>
+
+          <!-- Menu Grid -->
+          <div class="menu-grid fade-up" id="menu-grid" role="list">
+            <!-- Populated by JS -->
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ======== PAGE: LOCATIONS ======== -->
+    <section id="locations" class="page page-locations" role="main" aria-label="Locations page">
+
+      <div class="page-hero page-hero--locations">
+        <div class="container">
+          <div class="page-hero-content fade-up">
+            <div class="section-stamp">Find Us</div>
+            <h1 class="page-hero-title">Our Locations</h1>
+            <p>Six joints. One soul. Find your nearest Red Ember.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="locations-body">
+        <div class="container">
+          <div class="locations-grid fade-up" id="locations-grid">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ======== PAGE: CHECKOUT ======== -->
+    <section id="checkout" class="page page-checkout" role="main" aria-label="Checkout page">
+
+      <div class="page-hero page-hero--checkout">
+        <div class="container">
+          <div class="page-hero-content fade-up">
+            <div class="section-stamp">Almost There</div>
+            <h1 class="page-hero-title">Your Order</h1>
+            <p>Fill in your details and we'll get cooking!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkout-body">
+        <div class="container">
+          <div class="checkout-grid fade-up">
+
+            <!-- Order Summary -->
+            <div class="checkout-summary">
+              <h2 class="checkout-section-title">Order Summary</h2>
+              <div id="checkout-items" class="checkout-items">
+                <div class="cart-empty">
+                  <span class="cart-empty-icon">🍔</span>
+                  <p>No items yet</p>
+                  <button class="btn btn-outline btn-sm" data-page="menu">Browse Menu</button>
+                </div>
+              </div>
+              <div id="checkout-totals" class="checkout-totals" style="display:none;">
+                <div class="total-row">
+                  <span>Subtotal</span>
+                  <span id="co-subtotal">$0.00</span>
+                </div>
+                <div class="total-row">
+                  <span>Delivery Fee</span>
+                  <span>$2.99</span>
+                </div>
+                <div class="total-row total-row--final">
+                  <span>Total</span>
+                  <span id="co-total">$0.00</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Customer Form -->
+            <div class="checkout-form-wrap">
+              <h2 class="checkout-section-title">Your Details</h2>
+              <form id="checkout-form" class="checkout-form" novalidate>
+
+                <div class="form-group">
+                  <label for="co-name">Full Name *</label>
+                  <input type="text" id="co-name" name="name" placeholder="Earl Ember" required />
+                  <span class="form-error" id="err-name"></span>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="co-email">Email *</label>
+                    <input type="email" id="co-email" name="email" placeholder="you@example.com" required />
+                    <span class="form-error" id="err-email"></span>
+                  </div>
+                  <div class="form-group">
+                    <label for="co-phone">Phone *</label>
+                    <input type="tel" id="co-phone" name="phone" placeholder="+1 555 000 0000" required />
+                    <span class="form-error" id="err-phone"></span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="co-address">Delivery Address *</label>
+                  <input type="text" id="co-address" name="address" placeholder="123 Main St, City, State" required />
+                  <span class="form-error" id="err-address"></span>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="co-city">City *</label>
+                    <input type="text" id="co-city" name="city" placeholder="New York" required />
+                    <span class="form-error" id="err-city"></span>
+                  </div>
+                  <div class="form-group">
+                    <label for="co-zip">ZIP Code *</label>
+                    <input type="text" id="co-zip" name="zip" placeholder="10001" required />
+                    <span class="form-error" id="err-zip"></span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="co-notes">Special Instructions</label>
+                  <textarea id="co-notes" name="notes" rows="3" placeholder="Extra napkins, no onions, etc."></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label>Delivery Method</label>
+                  <div class="radio-group">
+                    <label class="radio-label">
+                      <input type="radio" name="delivery" value="delivery" checked /> 
+                      <span class="radio-custom"></span>
+                      Home Delivery
+                    </label>
+                    <label class="radio-label">
+                      <input type="radio" name="delivery" value="pickup" />
+                      <span class="radio-custom"></span>
+                      Pickup In-Store
+                    </label>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full btn-large" id="place-order-btn">
+                  🔥 Place My Order
+                </button>
+
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ===================== ORDER SUCCESS MODAL ===================== -->
+  <div id="success-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="success-title">
+    <div class="modal-box">
+      <div class="modal-emoji">🎉</div>
+      <h2 id="success-title">Order Placed!</h2>
+      <p id="success-msg">Thanks, <strong id="success-name"></strong>! Your order is being prepared. Estimated delivery: <strong>25–35 min</strong>.</p>
+      <div class="modal-order-id">Order #<span id="success-order-id"></span></div>
+      <button class="btn btn-primary" id="modal-close-btn">Back to Menu</button>
+    </div>
+  </div>
+
+  <!-- ===================== TOAST ===================== -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
